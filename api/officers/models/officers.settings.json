@@ -1,0 +1,38 @@
+{
+  "kind": "collectionType",
+  "collectionName": "officers",
+  "info": {
+    "name": "Officers"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true
+  },
+  "attributes": {
+    "Name": {
+      "type": "string",
+      "required": true
+    },
+    "Title": {
+      "type": "string",
+      "required": true
+    },
+    "avatar": {
+      "model": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos"
+      ],
+      "plugin": "upload",
+      "required": true
+    },
+    "Email": {
+      "type": "email"
+    },
+    "Biography": {
+      "type": "richtext"
+    }
+  }
+}
