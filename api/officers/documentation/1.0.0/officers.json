@@ -599,7 +599,8 @@
             }
           },
           "Email": {
-            "type": "string"
+            "type": "string",
+            "default": "info@alamopost2.org"
           },
           "Biography": {
             "type": "string"
@@ -707,7 +708,8 @@
             "type": "string"
           },
           "Email": {
-            "type": "string"
+            "type": "string",
+            "default": "info@alamopost2.org"
           },
           "Biography": {
             "type": "string"

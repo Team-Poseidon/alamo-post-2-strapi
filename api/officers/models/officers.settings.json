@@ -29,7 +29,8 @@
       "required": true
     },
     "Email": {
-      "type": "email"
+      "type": "email",
+      "default": "info@alamopost2.org"
     },
     "Biography": {
       "type": "richtext"

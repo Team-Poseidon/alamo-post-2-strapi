@@ -14,7 +14,7 @@
       "name": "Apache 2.0",
       "url": "https://www.apache.org/licenses/LICENSE-2.0.html"
     },
-    "x-generation-date": "08/16/2020 8:11:53 PM"
+    "x-generation-date": "08/17/2020 3:13:22 PM"
   },
   "x-strapi-config": {
     "path": "/documentation",
@@ -4092,7 +4092,8 @@
             }
           },
           "Email": {
-            "type": "string"
+            "type": "string",
+            "default": "info@alamopost2.org"
           },
           "Biography": {
             "type": "string"
@@ -4200,7 +4201,8 @@
             "type": "string"
           },
           "Email": {
-            "type": "string"
+            "type": "string",
+            "default": "info@alamopost2.org"
           },
           "Biography": {
             "type": "string"
