@@ -1,18 +1,18 @@
 {
   "paths": {
-    "/categories": {
+    "/events": {
       "get": {
         "deprecated": false,
-        "description": "",
+        "description": "Find all the events's records",
         "responses": {
           "200": {
-            "description": "response",
+            "description": "Retrieve events document(s)",
             "content": {
               "application/json": {
                 "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/components/schemas/Category"
+                    "$ref": "#/components/schemas/Events"
                   }
                 }
               }
@@ -51,7 +51,7 @@
         },
         "summary": "",
         "tags": [
-          "Category"
+          "Events"
         ],
         "parameters": [
           {
@@ -194,14 +194,14 @@
       },
       "post": {
         "deprecated": false,
-        "description": "Create a new record",
+        "description": "Create a new events record",
         "responses": {
           "200": {
-            "description": "response",
+            "description": "Retrieve events document(s)",
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Category"
+                  "$ref": "#/components/schemas/Events"
                 }
               }
             }
@@ -239,7 +239,7 @@
         },
         "summary": "",
         "tags": [
-          "Category"
+          "Events"
         ],
         "requestBody": {
           "description": "",
@@ -247,20 +247,20 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/NewCategory"
+                "$ref": "#/components/schemas/NewEvents"
               }
             }
           }
         }
       }
     },
-    "/categories/count": {
+    "/events/count": {
       "get": {
         "deprecated": false,
-        "description": "",
+        "description": "Retrieve the numver of events documents",
         "responses": {
           "200": {
-            "description": "response",
+            "description": "Retrieve events document(s)",
             "content": {
               "application/json": {
                 "schema": {
@@ -306,22 +306,22 @@
         },
         "summary": "",
         "tags": [
-          "Category"
+          "Events"
         ],
         "parameters": []
       }
     },
-    "/categories/{id}": {
+    "/events/{id}": {
       "get": {
         "deprecated": false,
-        "description": "",
+        "description": "Find one events record",
         "responses": {
           "200": {
-            "description": "response",
+            "description": "Retrieve events document(s)",
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Category"
+                  "$ref": "#/components/schemas/Events"
                 }
               }
             }
@@ -359,7 +359,7 @@
         },
         "summary": "",
         "tags": [
-          "Category"
+          "Events"
         ],
         "parameters": [
           {
@@ -376,14 +376,14 @@
       },
       "put": {
         "deprecated": false,
-        "description": "Update a record",
+        "description": "Update a single events record",
         "responses": {
           "200": {
-            "description": "response",
+            "description": "Retrieve events document(s)",
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Category"
+                  "$ref": "#/components/schemas/Events"
                 }
               }
             }
@@ -421,7 +421,7 @@
         },
         "summary": "",
         "tags": [
-          "Category"
+          "Events"
         ],
         "requestBody": {
           "description": "",
@@ -429,7 +429,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/NewCategory"
+                "$ref": "#/components/schemas/NewEvents"
               }
             }
           }
@@ -449,10 +449,10 @@
       },
       "delete": {
         "deprecated": false,
-        "description": "Delete a record",
+        "description": "Delete a single events record",
         "responses": {
           "200": {
-            "description": "deletes a single record based on the ID supplied",
+            "description": "deletes a single events based on the ID supplied",
             "content": {
               "application/json": {
                 "schema": {
@@ -495,7 +495,7 @@
         },
         "summary": "",
         "tags": [
-          "Category"
+          "Events"
         ],
         "parameters": [
           {
@@ -514,19 +514,88 @@
   },
   "components": {
     "schemas": {
-      "Category": {
+      "Events": {
         "required": [
-          "id",
-          "name"
+          "id"
         ],
         "properties": {
           "id": {
             "type": "string"
           },
-          "name": {
+          "avatar": {
+            "required": [
+              "id",
+              "name",
+              "hash",
+              "mime",
+              "size",
+              "url",
+              "provider"
+            ],
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "name": {
+                "type": "string"
+              },
+              "alternativeText": {
+                "type": "string"
+              },
+              "caption": {
+                "type": "string"
+              },
+              "width": {
+                "type": "integer"
+              },
+              "height": {
+                "type": "integer"
+              },
+              "formats": {
+                "type": "object"
+              },
+              "hash": {
+                "type": "string"
+              },
+              "ext": {
+                "type": "string"
+              },
+              "mime": {
+                "type": "string"
+              },
+              "size": {
+                "type": "number"
+              },
+              "url": {
+                "type": "string"
+              },
+              "previewUrl": {
+                "type": "string"
+              },
+              "provider": {
+                "type": "string"
+              },
+              "provider_metadata": {
+                "type": "object"
+              },
+              "related": {
+                "type": "string"
+              },
+              "created_by": {
+                "type": "string"
+              },
+              "updated_by": {
+                "type": "string"
+              }
+            }
+          },
+          "title": {
             "type": "string"
           },
-          "blog_posts": {
+          "content": {
+            "type": "string"
+          },
+          "categories": {
             "type": "array",
             "items": {
               "required": [
@@ -540,14 +609,14 @@
                 "name": {
                   "type": "string"
                 },
-                "description": {
-                  "type": "string"
-                },
-                "categories": {
+                "blog_posts": {
                   "type": "array",
                   "items": {
                     "type": "string"
                   }
+                },
+                "event": {
+                  "type": "string"
                 },
                 "created_by": {
                   "type": "string"
@@ -558,39 +627,8 @@
               }
             }
           },
-          "event": {
-            "required": [
-              "id"
-            ],
-            "properties": {
-              "id": {
-                "type": "string"
-              },
-              "avatar": {
-                "type": "string"
-              },
-              "title": {
-                "type": "string"
-              },
-              "content": {
-                "type": "string"
-              },
-              "categories": {
-                "type": "array",
-                "items": {
-                  "type": "string"
-                }
-              },
-              "event_date": {
-                "type": "datetime"
-              },
-              "created_by": {
-                "type": "string"
-              },
-              "updated_by": {
-                "type": "string"
-              }
-            }
+          "event_date": {
+            "type": "datetime"
           },
           "created_by": {
             "required": [
@@ -682,22 +720,22 @@
           }
         }
       },
-      "NewCategory": {
-        "required": [
-          "name"
-        ],
+      "NewEvents": {
         "properties": {
-          "name": {
+          "title": {
             "type": "string"
           },
-          "blog_posts": {
+          "content": {
+            "type": "string"
+          },
+          "categories": {
             "type": "array",
             "items": {
               "type": "string"
             }
           },
-          "event": {
-            "type": "string"
+          "event_date": {
+            "type": "datetime"
           },
           "created_by": {
             "type": "string"
@@ -711,7 +749,7 @@
   },
   "tags": [
     {
-      "name": "Category"
+      "name": "Events"
     }
   ]
 }

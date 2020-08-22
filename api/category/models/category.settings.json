@@ -18,6 +18,10 @@
       "collection": "blog-post",
       "via": "categories",
       "dominant": true
+    },
+    "event": {
+      "via": "categories",
+      "model": "events"
     }
   }
 }

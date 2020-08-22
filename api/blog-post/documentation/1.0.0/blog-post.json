@@ -562,6 +562,9 @@
                     "type": "string"
                   }
                 },
+                "event": {
+                  "type": "string"
+                },
                 "created_by": {
                   "type": "string"
                 },
